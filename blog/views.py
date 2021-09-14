@@ -1,3 +1,13 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
-# Create your views here.
+from blog.models import Post
+
+class PostList(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    ordering = '-pk'
+
+
+class PostDetail(DetailView):
+    model = Post
